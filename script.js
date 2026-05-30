@@ -1,8 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+	initTheme();
 	initCharts();
 	setupMobileMenu();
 	setupProjectFiltering();
 });
+
+function initTheme() {
+	const savedTheme = localStorage.getItem('theme');
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	const isDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+	
+	if (isDark) {
+		document.documentElement.classList.add('dark');
+	}
+	
+	const themeToggle = document.getElementById('theme-toggle');
+	if (themeToggle) {
+		updateThemeIcon();
+		themeToggle.addEventListener('click', toggleTheme);
+	}
+}
+
+function toggleTheme() {
+	const isDark = document.documentElement.classList.toggle('dark');
+	localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	updateThemeIcon();
+}
+
+function updateThemeIcon() {
+	const themeToggle = document.getElementById('theme-toggle');
+	if (themeToggle) {
+		themeToggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+	}
+}
 
 function initCharts() {
 	const chartElement = document.getElementById('skillsChart');
@@ -18,7 +48,7 @@ function initCharts() {
 				labels: ['Programming', 'AI/ML', 'Web Dev', 'CS Fundamentals', 'Tools', 'Soft Skills'],
 				datasets: [{
 					label: 'Proficiency Level',
-					data: [90, 85, 75, 80, 85, 90],
+					data: [75, 70, 65, 70, 75, 80],
 					backgroundColor: 'rgba(217, 119, 6, 0.2)',
 					borderColor: 'rgba(217, 119, 6, 1)',
 					pointBackgroundColor: 'rgba(217, 119, 6, 1)',

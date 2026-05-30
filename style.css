@@ -11,6 +11,17 @@
 	--border: rgba(15, 23, 42, 0.12);
 }
 
+html.dark {
+	--ink: #f8fafc;
+	--muted: #cbd5e1;
+	--accent: #f59e0b;
+	--accent-dark: #fbbf24;
+	--teal: #14b8a6;
+	--paper: #0f172a;
+	--card: rgba(30, 41, 59, 0.88);
+	--border: rgba(255, 255, 255, 0.1);
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -47,6 +58,11 @@ button {
 	background: rgba(255, 255, 255, 0.82);
 	border-bottom: 1px solid var(--border);
 	backdrop-filter: blur(12px);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .nav-surface {
+	background: rgba(15, 23, 42, 0.82);
 }
 
 .nav-link {
@@ -128,6 +144,11 @@ button {
 	background: rgba(255, 255, 255, 0.7);
 	border-top: 1px solid var(--border);
 	border-bottom: 1px solid var(--border);
+	transition: background-color 0.3s ease;
+}
+
+html.dark .section-muted {
+	background: rgba(30, 41, 59, 0.7);
 }
 
 .card-soft {
@@ -176,9 +197,43 @@ button {
 	background: linear-gradient(135deg, #0f172a 0%, #0b3b3f 100%);
 }
 
+html.dark .dark-section {
+	background: linear-gradient(135deg, #0a0e27 0%, #0a2f33 100%);
+}
+
+.theme-toggle {
+	background: none;
+	border: none;
+	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	transition: background-color 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.theme-toggle:hover {
+	background: rgba(15, 23, 42, 0.1);
+}
+
+html.dark .theme-toggle:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+html {
+	transition: background-color 0.3s ease;
+}
+
 .footer-surface {
 	background: rgba(255, 255, 255, 0.92);
 	border-top: 1px solid var(--border);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .footer-surface {
+	background: rgba(15, 23, 42, 0.92);
 }
 
 .reveal {

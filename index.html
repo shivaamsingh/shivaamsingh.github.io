@@ -20,7 +20,10 @@
                     <a href="#projects" class="nav-link rounded px-2 py-1">Projects</a>
                     <a href="#achievements" class="nav-link rounded px-2 py-1">Achievements</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-slate-700 text-2xl rounded p-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+                <div class="flex items-center gap-2">
+                    <button id="theme-toggle" class="theme-toggle md:flex hidden" aria-label="Toggle dark mode">🌙</button>
+                    <button id="mobile-menu-btn" class="md:hidden text-slate-700 text-2xl rounded p-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+                </div>
             </div>
             <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-100 bg-white/95 backdrop-blur-md">
                 <a href="#about" class="nav-link block px-4 py-2 text-slate-700 hover:bg-amber-50 rounded transition">About</a>
@@ -168,44 +171,6 @@
                         </div>
                     </a>
 
-                    <a href="https://github.com/shivaamsingh/IRCTC" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold text-amber-600 uppercase">Java Learning App</span>
-                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🚆</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">IRCTC</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                            A Java learning application focused on practicing core programming workflows and object-oriented fundamentals.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Java</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">OOP</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Learning</span>
-                        </div>
-                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
-                            View on GitHub →
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/shivaamsingh/currency-converter" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold text-amber-600 uppercase">CLI Utility</span>
-                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">💱</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Currency Converter</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                            Python command-line tool that converts between currencies using predefined exchange rates with clean input handling.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">CLI</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Data Handling</span>
-                        </div>
-                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
-                            View on GitHub →
-                        </div>
-                    </a>
-
                     <a href="https://github.com/shivaamsingh/PerfumeShop" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
                         <div class="flex justify-between mb-4">
                             <span class="text-xs font-bold text-amber-600 uppercase">Full-Stack Commerce</span>
@@ -219,25 +184,6 @@
                             <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">React</span>
                             <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Node.js</span>
                             <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">MongoDB</span>
-                        </div>
-                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
-                            View on GitHub →
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/shivaamsingh/Python-Learning-Projects" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
-                        <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold text-amber-600 uppercase">Python Mini Projects</span>
-                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🧩</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Python Learning Projects</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                            Beginner-friendly Python games and utilities designed to build programming fundamentals through practice.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Games</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Fundamentals</span>
                         </div>
                         <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
                             View on GitHub →
