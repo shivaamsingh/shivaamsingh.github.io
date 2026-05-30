@@ -6,106 +6,27 @@
     <title>Shivam Singh | AI & ML Engineer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fdfbf7;
-            color: #2d3436;
-            scroll-behavior: smooth;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-
-        .nav-link {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #4a5568;
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :focus-visible {
-            outline: 2px solid #d97706;
-            outline-offset: 2px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .project-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
 
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav class="fixed top-0 w-full z-50 nav-surface">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <a href="#" class="font-bold text-xl tracking-tight text-slate-800 hover:text-amber-600 transition">SHIVAM SINGH</a>
+                <a href="#" class="font-display font-bold text-xl tracking-tight text-slate-900 hover:text-amber-600 transition">SHIVAM SINGH</a>
                 <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                    <a href="#about" class="nav-link focus:outline-none focus:ring-2 focus:ring-amber-600 rounded px-2 py-1">About</a>
-                    <a href="#skills" class="nav-link focus:outline-none focus:ring-2 focus:ring-amber-600 rounded px-2 py-1">Skills</a>
-                    <a href="#projects" class="nav-link focus:outline-none focus:ring-2 focus:ring-amber-600 rounded px-2 py-1">Projects</a>
-                    <a href="#achievements" class="nav-link focus:outline-none focus:ring-2 focus:ring-amber-600 rounded px-2 py-1">Achievements</a>
+                    <a href="#about" class="nav-link rounded px-2 py-1">About</a>
+                    <a href="#skills" class="nav-link rounded px-2 py-1">Skills</a>
+                    <a href="#projects" class="nav-link rounded px-2 py-1">Projects</a>
+                    <a href="#achievements" class="nav-link rounded px-2 py-1">Achievements</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-slate-600 text-2xl focus:outline-none focus:ring-2 focus:ring-amber-600 rounded p-2" aria-label="Toggle menu" aria-expanded="false">☰</button>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-700 text-2xl rounded p-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-100">
-                <a href="#about" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">About</a>
-                <a href="#skills" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">Skills</a>
-                <a href="#projects" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">Projects</a>
-                <a href="#achievements" class="block px-4 py-2 text-slate-600 hover:bg-slate-50 rounded transition">Achievements</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 border-t border-gray-100 bg-white/95 backdrop-blur-md">
+                <a href="#about" class="nav-link block px-4 py-2 text-slate-700 hover:bg-amber-50 rounded transition">About</a>
+                <a href="#skills" class="nav-link block px-4 py-2 text-slate-700 hover:bg-amber-50 rounded transition">Skills</a>
+                <a href="#projects" class="nav-link block px-4 py-2 text-slate-700 hover:bg-amber-50 rounded transition">Projects</a>
+                <a href="#achievements" class="nav-link block px-4 py-2 text-slate-700 hover:bg-amber-50 rounded transition">Achievements</a>
             </div>
         </div>
     </nav>
@@ -113,8 +34,8 @@
     <main class="pt-24 pb-12">
         <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">
+                <div class="space-y-6 reveal">
+                    <div class="badge">
                         Aspiring AI/ML Engineer
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
@@ -126,25 +47,25 @@
                         I bridge the gap between theoretical algorithms and impactful software solutions.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="mailto:shivamsinghh088@gmail.com" class="bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition">Contact Me</a>
+                        <a href="mailto:shivamsinghh088@gmail.com" class="cta-button">Contact Me</a>
                         <div class="flex items-center space-x-4 text-2xl">
-                            <a href="https://linkedin.com/in/shivam-singh-061806341" target="_blank" class="hover:text-amber-600 transition">💼</a>
-                            <a href="https://github.com/shivaamsingh" target="_blank" class="hover:text-amber-600 transition">💻</a>
+                            <a href="https://linkedin.com/in/shivam-singh-061806341" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" class="hover:text-amber-600 transition">💼</a>
+                            <a href="https://github.com/shivaamsingh" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" class="hover:text-amber-600 transition">💻</a>
                         </div>
                     </div>
                 </div>
-                <div class="glass-card p-8 rounded-3xl shadow-sm border border-slate-100">
+                <div class="glass-card p-8 rounded-3xl reveal delay-1">
                     <h3 class="text-xl font-bold mb-4 text-slate-800">Quick Stats</h3>
                     <div class="space-y-4">
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm">
+                        <div class="card-soft flex justify-between items-center p-3 rounded-xl">
                             <span class="text-slate-500">Academic Standing</span>
                             <span class="font-bold text-amber-600">7.6 CGPA</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm">
+                        <div class="card-soft flex justify-between items-center p-3 rounded-xl">
                             <span class="text-slate-500">Hackathon Finalist</span>
                             <span class="font-bold text-amber-600">Google India</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm">
+                        <div class="card-soft flex justify-between items-center p-3 rounded-xl">
                             <span class="text-slate-500">Core Tech</span>
                             <span class="font-bold text-amber-600">Python & AI</span>
                         </div>
@@ -153,10 +74,10 @@
             </div>
         </section>
 
-        <section id="skills" class="bg-white py-20 border-y border-slate-50">
+        <section id="skills" class="section-muted py-20">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Technical Proficiency</h2>
+                    <h2 id="skillsChartTitle" class="text-3xl font-bold text-slate-900 mb-4">Technical Proficiency</h2>
                     <p class="text-slate-600 max-w-2xl mx-auto">
                         This section breaks down my technical stack into core areas. I maintain a balanced focus between 
                         AI research and full-stack software development.
@@ -164,26 +85,27 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="chart-container">
-                        <canvas id="skillsChart"></canvas>
+                    <div class="chart-container glass-card p-6">
+                        <p id="skillsChartDesc" class="sr-only">Radar chart showing strengths in programming, AI/ML, web development, computer science fundamentals, tools, and soft skills.</p>
+                        <canvas id="skillsChart" role="img" aria-describedby="skillsChartDesc"></canvas>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="card-soft p-6 rounded-2xl">
                             <div class="text-2xl mb-2">🧠</div>
                             <h4 class="font-bold text-slate-800 mb-2">AI/ML Core</h4>
                             <p class="text-sm text-slate-500">Transformers, NLP, Deep Learning, TensorFlow</p>
                         </div>
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="card-soft p-6 rounded-2xl">
                             <div class="text-2xl mb-2">🌐</div>
                             <h4 class="font-bold text-slate-800 mb-2">Web Stack</h4>
                             <p class="text-sm text-slate-500">React Native, Django, HTML/CSS/JS</p>
                         </div>
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="card-soft p-6 rounded-2xl">
                             <div class="text-2xl mb-2">🛠️</div>
                             <h4 class="font-bold text-slate-800 mb-2">Tools</h4>
                             <p class="text-sm text-slate-500">Git, GitHub, Figma, VS Code</p>
                         </div>
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="card-soft p-6 rounded-2xl">
                             <div class="text-2xl mb-2">📦</div>
                             <h4 class="font-bold text-slate-800 mb-2">CS Fundamentals</h4>
                             <p class="text-sm text-slate-500">DSA, OOPs, DBMS, OS Basics</p>
@@ -201,25 +123,25 @@
                         <p class="text-slate-600">Exploring the boundaries of AI and software efficiency.</p>
                     </div>
                     <div class="flex gap-2" id="projectFilters">
-                        <button class="px-4 py-2 rounded-full bg-slate-800 text-white text-sm" onclick="filterProjects('all')">All</button>
-                        <button class="px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-sm hover:bg-slate-200" onclick="filterProjects('ai')">AI/ML</button>
-                        <button class="px-4 py-2 rounded-full bg-slate-100 text-slate-600 text-sm hover:bg-slate-200" onclick="filterProjects('dev')">Development</button>
+                        <button class="filter-btn filter-btn-active" type="button" data-category="all" aria-pressed="true">All</button>
+                        <button class="filter-btn" type="button" data-category="ai" aria-pressed="false">AI/ML</button>
+                        <button class="filter-btn" type="button" data-category="dev" aria-pressed="false">Development</button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projectGrid">
-                    <a href="https://github.com/shivaamsingh/transformer-translator" target="_blank" rel="noopener noreferrer" class="project-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100 transition hover:shadow-lg hover:border-amber-300 group cursor-pointer" data-category="ai">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectGrid">
+                    <a href="https://github.com/shivaamsingh/ColabNoteBooks" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="ai">
                         <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold text-amber-600 uppercase">Natural Language Processing</span>
-                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🤖</span>
+                            <span class="text-xs font-bold text-amber-600 uppercase">ML Notebook Collection</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🧪</span>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Transformer Translation Model</h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">ColabNoteBooks</h3>
                         <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                            A sequence-to-sequence English-to-French model built with TensorFlow. Implemented positional encoding, multi-head self-attention, and masking techniques.
+                            A collection of ML, NLP, and deep learning notebooks exploring transformer models, text summarization, and hands-on experiments in Colab.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">TensorFlow</span>
                             <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">TensorFlow</span>
                             <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">NLP</span>
                         </div>
                         <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
@@ -227,19 +149,133 @@
                         </div>
                     </a>
 
-                    <a href="https://github.com/shivaamsingh/compile-ai" target="_blank" rel="noopener noreferrer" class="project-card bg-white p-8 rounded-3xl shadow-sm border border-slate-100 transition hover:shadow-lg hover:border-amber-300 group cursor-pointer" data-category="dev">
+                    <a href="https://github.com/shivaamsingh/compile-ai" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="ai">
                         <div class="flex justify-between mb-4">
-                            <span class="text-xs font-bold text-amber-600 uppercase">AI Productivity Tool</span>
-                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">⚡</span>
+                            <span class="text-xs font-bold text-amber-600 uppercase">AI Generation Framework</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🧠</span>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Compile-AI</h3>
                         <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                            AI-assisted application focused on improving coding workflows and development productivity through intelligent automation and real-time suggestions.
+                            Compiler-inspired framework that transforms natural language prompts into structured full-stack architectures using IR, validation, and repair stages.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">AI Integration</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Frontend</span>
-                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Git</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">LLMs</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">FastAPI</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">React</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/IRCTC" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">Java Learning App</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🚆</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">IRCTC</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            A Java learning application focused on practicing core programming workflows and object-oriented fundamentals.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Java</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">OOP</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Learning</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/currency-converter" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">CLI Utility</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">💱</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Currency Converter</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Python command-line tool that converts between currencies using predefined exchange rates with clean input handling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">CLI</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Data Handling</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/PerfumeShop" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">Full-Stack Commerce</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🛍️</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Royal Perfume Shop</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Luxury-inspired shopping experience with product pages, cart flow, and reviews backed by a Node and MongoDB API.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">React</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Node.js</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">MongoDB</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/Python-Learning-Projects" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">Python Mini Projects</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🧩</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Python Learning Projects</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Beginner-friendly Python games and utilities designed to build programming fundamentals through practice.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Games</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Fundamentals</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/Glassmorphism-To-Do-List" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">UI Experiment</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🧊</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Glassmorphism To-Do List</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            Glass UI-inspired task manager with CRUD actions, progress tracking, confetti, and local storage.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">HTML</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">CSS</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">JavaScript</span>
+                        </div>
+                        <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
+                            View on GitHub →
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/shivaamsingh/Python-Weather-API" target="_blank" rel="noopener noreferrer" class="project-card p-8 rounded-3xl group cursor-pointer" data-category="dev">
+                        <div class="flex justify-between mb-4">
+                            <span class="text-xs font-bold text-amber-600 uppercase">Desktop Utility</span>
+                            <span class="text-slate-400 text-xl group-hover:scale-110 transition">🌦️</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition">Python Weather App</h3>
+                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                            PyQt5 desktop app that fetches real-time weather from OpenWeather API with emoji status and error handling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">Python</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">PyQt5</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-xs rounded-md">API</span>
                         </div>
                         <div class="inline-block px-4 py-2 bg-amber-50 text-amber-600 text-xs font-semibold rounded-lg group-hover:bg-amber-600 group-hover:text-white transition">
                             View on GitHub →
@@ -249,7 +285,7 @@
             </div>
         </section>
 
-        <section id="achievements" class="bg-slate-900 py-20 text-white">
+        <section id="achievements" class="dark-section py-20 text-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -306,7 +342,7 @@
         </section>
     </main>
 
-    <footer class="bg-white py-12 border-t border-slate-100">
+    <footer class="footer-surface py-12">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <h3 class="font-bold text-slate-900 mb-2">SHIVAM SINGH</h3>
             <p class="text-slate-500 text-sm mb-6">Patna, Bihar, India | AI/ML Engineering Undergraduate</p>
@@ -319,132 +355,6 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            initCharts();
-            setupMobileMenu();
-            setupProjectFiltering();
-            setupSmoothScroll();
-            setupAccessibility();
-        });
-
-        function initCharts() {
-            const chartElement = document.getElementById('skillsChart');
-            if (!chartElement) return;
-
-            const ctx = chartElement.getContext('2d');
-            try {
-                new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: ['Programming', 'AI/ML', 'Web Dev', 'CS Fundamentals', 'Tools', 'Soft Skills'],
-                        datasets: [{
-                            label: 'Proficiency Level',
-                            data: [90, 85, 75, 80, 85, 90],
-                            backgroundColor: 'rgba(217, 119, 6, 0.2)',
-                            borderColor: 'rgba(217, 119, 6, 1)',
-                            pointBackgroundColor: 'rgba(217, 119, 6, 1)',
-                            pointBorderColor: '#fff',
-                            pointHoverBackgroundColor: '#fff',
-                            pointHoverBorderColor: 'rgba(217, 119, 6, 1)'
-                        }]
-                    },
-                    options: {
-                        maintainAspectRatio: false,
-                        scales: {
-                            r: {
-                                angleLines: { display: true },
-                                suggestedMin: 0,
-                                suggestedMax: 100,
-                                ticks: { display: false }
-                            }
-                        },
-                        plugins: {
-                            legend: { display: false }
-                        }
-                    }
-                });
-            } catch (error) {
-                console.error('Chart.js initialization failed:', error);
-            }
-        }
-
-        function setupMobileMenu() {
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            const links = menu.querySelectorAll('a');
-
-            btn.addEventListener('click', () => {
-                const isOpen = menu.classList.contains('hidden');
-                menu.classList.toggle('hidden');
-                btn.setAttribute('aria-expanded', isOpen);
-            });
-
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    btn.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    if (href === '#') return;
-                    
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-        }
-
-        function setupAccessibility() {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        link.click();
-                    }
-                });
-            });
-        }
-
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('#projectFilters button');
-
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-slate-800', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
-            });
-
-            const activeBtn = Array.from(buttons).find(btn => btn.innerText.toLowerCase() === category);
-            if(activeBtn) {
-                activeBtn.classList.add('bg-slate-800', 'text-white');
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
-            } else if(category === 'all') {
-                buttons[0].classList.add('bg-slate-800', 'text-white');
-            }
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                    card.style.opacity = '1';
-                } else {
-                    card.style.display = 'none';
-                    card.style.opacity = '0';
-                }
-            });
-        }
-
-        function setupProjectFiltering() {
-            filterProjects('all');
-        }
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>

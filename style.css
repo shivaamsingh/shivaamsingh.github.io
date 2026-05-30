@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+	--ink: #1b1f24;
+	--muted: #5f6b75;
+	--accent: #d97706;
+	--accent-dark: #8a5200;
+	--teal: #0f766e;
+	--paper: #fbf7f2;
+	--card: rgba(255, 255, 255, 0.88);
+	--border: rgba(15, 23, 42, 0.12);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Spectral', serif;
+	background-color: var(--paper);
+	color: var(--ink);
+	line-height: 1.6;
+	background-image:
+		radial-gradient(60rem 60rem at -10% -20%, rgba(217, 119, 6, 0.18) 0%, rgba(217, 119, 6, 0) 60%),
+		radial-gradient(45rem 45rem at 110% 10%, rgba(15, 118, 110, 0.15) 0%, rgba(15, 118, 110, 0) 70%);
+}
+
+h1, h2, h3, h4, h5, .font-display {
+	font-family: 'Space Grotesk', sans-serif;
+	letter-spacing: -0.015em;
+}
+
+a {
+	color: inherit;
+}
+
+button {
+	font-family: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.nav-surface {
+	background: rgba(255, 255, 255, 0.82);
+	border-bottom: 1px solid var(--border);
+	backdrop-filter: blur(12px);
+}
+
+.nav-link {
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.nav-link::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: var(--accent);
+	transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+	width: 100%;
+}
+
+.chart-container {
+	position: relative;
+	width: 100%;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 300px;
+	max-height: 400px;
+}
+
+@media (min-width: 768px) {
+	.chart-container {
+		height: 350px;
+	}
+}
+
+.glass-card {
+	background: var(--card);
+	backdrop-filter: blur(12px);
+	border: 1px solid var(--border);
+	box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.35rem 0.9rem;
+	border-radius: 999px;
+	background: rgba(217, 119, 6, 0.15);
+	color: var(--accent-dark);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.cta-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #0f172a, var(--teal));
+	color: #f8fafc;
+	border-radius: 0.9rem;
+	padding: 0.8rem 1.6rem;
+	font-weight: 600;
+	box-shadow: 0 14px 30px rgba(15, 23, 42, 0.2);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 18px 36px rgba(15, 23, 42, 0.25);
+}
+
+.section-muted {
+	background: rgba(255, 255, 255, 0.7);
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+.card-soft {
+	background: #ffffff;
+	border: 1px solid var(--border);
+	box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.project-card {
+	display: block;
+	text-decoration: none;
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid var(--border);
+	box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+}
+
+.filter-btn {
+	padding: 0.5rem 1.1rem;
+	border-radius: 999px;
+	border: none;
+	background: rgba(15, 23, 42, 0.06);
+	color: var(--muted);
+	font-size: 0.85rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+	background: rgba(15, 23, 42, 0.12);
+}
+
+.filter-btn-active {
+	background: #0f172a;
+	color: #f8fafc;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+}
+
+.dark-section {
+	background: linear-gradient(135deg, #0f172a 0%, #0b3b3f 100%);
+}
+
+.footer-surface {
+	background: rgba(255, 255, 255, 0.92);
+	border-top: 1px solid var(--border);
+}
+
+.reveal {
+	animation: fadeInUp 0.9s ease both;
+}
+
+.delay-1 {
+	animation-delay: 0.12s;
+}
+
+.delay-2 {
+	animation-delay: 0.24s;
+}
+
+section {
+	animation: fadeInUp 0.7s ease both;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.reveal,
+	section {
+		animation: none;
+	}
+}
