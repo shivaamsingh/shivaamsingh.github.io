@@ -1,5 +1,20 @@
 let skillsChart = null;
 
+const chartThemes = {
+	light: {
+		accent: '#d97706',
+		fill: 'rgba(217, 119, 6, 0.2)',
+		grid: 'rgba(15, 23, 42, 0.12)',
+		text: '#5f6b75'
+	},
+	dark: {
+		accent: '#f59e0b',
+		fill: 'rgba(245, 158, 11, 0.2)',
+		grid: 'rgba(148, 163, 184, 0.25)',
+		text: '#cbd5e1'
+	}
+};
+
 document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCharts();
 	setupMobileMenu();
 	setupProjectFiltering();
-	setupStaggeredReveals();
 	setupScrollAnimations();
 });
 
@@ -50,7 +64,7 @@ function initCharts() {
 	}
 
 	const ctx = chartElement.getContext('2d');
-	const colors = getChartThemeColors();
+	const theme = getChartTheme();
 	try {
 		skillsChart = new Chart(ctx, {
 			type: 'radar',
@@ -59,21 +73,21 @@ function initCharts() {
 				datasets: [{
 					label: 'Proficiency Level',
 					data: [75, 70, 65, 70, 75, 80],
-					backgroundColor: withAlpha(colors.accent, 0.2),
-					borderColor: colors.accent,
-					pointBackgroundColor: colors.accent,
+					backgroundColor: theme.fill,
+					borderColor: theme.accent,
+					pointBackgroundColor: theme.accent,
 					pointBorderColor: '#fff',
 					pointHoverBackgroundColor: '#fff',
-					pointHoverBorderColor: colors.accent
+					pointHoverBorderColor: theme.accent
 				}]
 			},
 			options: {
 				maintainAspectRatio: false,
 				scales: {
 					r: {
-						angleLines: { display: true, color: colors.grid },
-						grid: { color: colors.grid },
-						pointLabels: { color: colors.text },
+						angleLines: { display: true, color: theme.grid },
+						grid: { color: theme.grid },
+						pointLabels: { color: theme.text },
 						suggestedMin: 0,
 						suggestedMax: 100,
 						ticks: { display: false }
@@ -95,44 +109,23 @@ function updateChartTheme() {
 		return;
 	}
 
-	const colors = getChartThemeColors();
+	const theme = getChartTheme();
 	const dataset = skillsChart.data.datasets[0];
 
-	dataset.borderColor = colors.accent;
-	dataset.pointBackgroundColor = colors.accent;
-	dataset.pointHoverBorderColor = colors.accent;
-	dataset.backgroundColor = withAlpha(colors.accent, 0.2);
+	dataset.borderColor = theme.accent;
+	dataset.pointBackgroundColor = theme.accent;
+	dataset.pointHoverBorderColor = theme.accent;
+	dataset.backgroundColor = theme.fill;
 
-	skillsChart.options.scales.r.angleLines.color = colors.grid;
-	skillsChart.options.scales.r.grid.color = colors.grid;
-	skillsChart.options.scales.r.pointLabels.color = colors.text;
+	skillsChart.options.scales.r.angleLines.color = theme.grid;
+	skillsChart.options.scales.r.grid.color = theme.grid;
+	skillsChart.options.scales.r.pointLabels.color = theme.text;
 
 	skillsChart.update();
 }
 
-function getChartThemeColors() {
-	const styles = getComputedStyle(document.documentElement);
-	const accent = styles.getPropertyValue('--accent').trim() || '#d97706';
-	const grid = styles.getPropertyValue('--border').trim() || 'rgba(15, 23, 42, 0.12)';
-	const text = styles.getPropertyValue('--muted').trim() || '#5f6b75';
-
-	return { accent, grid, text };
-}
-
-function withAlpha(color, alpha) {
-	if (color.startsWith('#')) {
-		let hex = color.replace('#', '');
-		if (hex.length === 3) {
-			hex = hex.split('').map(char => char + char).join('');
-		}
-		const value = parseInt(hex, 16);
-		const red = (value >> 16) & 255;
-		const green = (value >> 8) & 255;
-		const blue = value & 255;
-		return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
-	}
-
-	return color;
+function getChartTheme() {
+	return document.documentElement.classList.contains('dark') ? chartThemes.dark : chartThemes.light;
 }
 
 function setupMobileMenu() {
@@ -198,29 +191,6 @@ function setupProjectFiltering() {
 	});
 
 	filterProjects('all');
-}
-
-function setupStaggeredReveals() {
-	const elements = document.querySelectorAll('[data-stagger]');
-	if (!elements.length) {
-		return;
-	}
-
-	const groups = {};
-	elements.forEach(element => {
-		const key = element.dataset.stagger || 'default';
-		if (!groups[key]) {
-			groups[key] = [];
-		}
-		groups[key].push(element);
-	});
-
-	Object.values(groups).forEach(group => {
-		group.forEach((element, index) => {
-			const delay = Math.min(index * 0.08, 0.4);
-			element.style.transitionDelay = `${delay}s`;
-		});
-	});
 }
 
 function setupScrollAnimations() {
